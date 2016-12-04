@@ -1,22 +1,45 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-/*
-  Generated class for the PostulationList page.
+import { Postulation } from '../../models/postulation';
+import { Postulations } from '../../providers/postulations';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+import { PostulationPage } from '../postulation/postulation';
+
 @Component({
   selector: 'page-postulation-list',
   templateUrl: 'postulation-list.html'
 })
+
 export class PostulationListPage {
+  postulations: Postulation[];
+  originalPostulations: Postulation[];
 
-  constructor(public navCtrl: NavController) {}
-
-  ionViewDidLoad() {
-    console.log('Hello PostulationListPage Page');
+  constructor(public navCtrl: NavController, private listPostulation : Postulations) {
+  	listPostulation.load().subscribe(
+  		postulations => { 
+  			this.postulations = postulations;
+  			this.originalPostulations = postulations;
+  	})
   }
 
+  goToDetails(login: string){
+  	this.navCtrl.push(PostulationPage, {login});
+  }
+
+  search(searchEvent){
+  	let term = searchEvent.target.value
+
+  	// Perform search only if 3 characters or more.
+  	if(term.trim() === '' || term.trim().lenght < 3){
+  		// Load cached users
+  		this.postulations = this.originalPostulations;
+  	} else {
+  		// Get the searched users
+  		this.listPostulation.searchPostulations(term).subscribe(
+  		postulations => { 
+  			this.postulations = postulations;
+  		});
+  	}
+  }
 }

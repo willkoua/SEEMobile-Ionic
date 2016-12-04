@@ -3,7 +3,6 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 // Pages
-import { ListPage } from '../pages/list/list';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { PostulationListPage } from '../pages/postulation-list/postulation-list';
 import { InterviewListPage } from '../pages/interview-list/interview-list';
@@ -30,13 +29,12 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Calendar', component: CalendarPage },
-      { title: 'Postulation', component: PostulationListPage },
-      { title: 'Interview', component: InterviewListPage },
-      { title: 'Internship', component: InternshipListPage },
-      { title: 'Bookmarks', component: BookmarksPage },
-      { title: 'About', component: AboutPage },
-      { title: 'FirstList', component: ListPage },
+      { title: 'Calendrier', component: CalendarPage },
+      { title: 'Postulations', component: PostulationListPage },
+      { title: 'Entrevues', component: InterviewListPage },
+      { title: 'Stages', component: InternshipListPage },
+      { title: 'Favoris', component: BookmarksPage },
+      { title: 'A propos', component: AboutPage }
     ];
   }
 

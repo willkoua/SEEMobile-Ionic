@@ -1,13 +1,24 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Connections</ion-title>
+    <ion-title>Se connecter</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+	<ion-list>
+	  <ion-item>
+	    <ion-label>Nom d'utilisateur</ion-label>
+	    <ion-input type="text"></ion-input>
+	  </ion-item>
 
+	  <ion-item>
+	    <ion-label>Mot de passe</ion-label>
+	    <ion-input type="password"></ion-input>
+	  </ion-item>
+	</ion-list>
+
+	<div padding>
+	  <button block>Se connecter</button>
+	</div>
 </ion-content>

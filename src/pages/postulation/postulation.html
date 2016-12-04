@@ -3,9 +3,27 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Postulation détails</ion-title>
+    <ion-title>{{login}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-label>Followers</ion-label>
+			<ion-badge item-right>{{postulation?.followers}}</ion-badge>
+		</ion-item>
+		<ion-item>
+			<ion-label>Following</ion-label>
+			<ion-badge item-right>{{postulation?.following}}</ion-badge>
+		</ion-item>
+		<ion-item>
+			<ion-label>Repos</ion-label>
+			<ion-badge item-right>{{postulation?.public_repos}}</ion-badge>
+		</ion-item>
+		<ion-item>
+			<ion-label>Gists</ion-label>
+			<ion-badge item-right>{{postulation?.public_gists}}</ion-badge>
+		</ion-item>
+	</ion-list>
 </ion-content>

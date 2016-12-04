@@ -1,22 +1,19 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Postulation page.
+import { Postulation } from '../../models/postulation';
+import { Postulations } from '../../providers/postulations'
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-postulation',
   templateUrl: 'postulation.html'
 })
 export class PostulationPage {
+	postulation : Postulation;
+	login: string;
 
-  constructor(public navCtrl: NavController) {}
-
-  ionViewDidLoad() {
-    console.log('Hello PostulationPage Page');
+  constructor(public navCtrl: NavController, private navParams: NavParams, private postulations: Postulations) {
+  	this.login = navParams.get('login');
+  	this.postulations.loadDetails(this.login).subscribe(postulation => { this.postulation = postulation;})
   }
-
 }

@@ -1,24 +1,38 @@
 <ion-header>
   <ion-navbar>
+	<button ion-button menuToggle>
+  		<ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Se connecter</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-	<ion-list>
-	  <ion-item>
-	    <ion-label>Nom d'utilisateur</ion-label>
-	    <ion-input type="text"></ion-input>
-	  </ion-item>
+	<form #loginForm="ngForm" novalidate>
+		<ion-list no-lines>
+			<ion-item>
+				<ion-label stacked color="primary">Nom d'utilisateur</ion-label>
+				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+					required>
+				</ion-input>
+			</ion-item>
+			<p [hidden]="username.valid || submitted == false" color="danger" padding-left>
+				Le nom d'utilisateur est requis.
+			</p>
 
-	  <ion-item>
-	    <ion-label>Mot de passe</ion-label>
-	    <ion-input type="password"></ion-input>
-	  </ion-item>
-	</ion-list>
+			<ion-item>
+				<ion-label stacked color="primary">Mot de passe</ion-label>
+				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p [hidden]="password.valid || submitted == false" color="danger" padding-left>
+				Le mot de passe est requis.
+			</p>
+		</ion-list>
 
-	<div padding>
-	  <button block>Se connecter</button>
-	</div>
+		<div padding>
+			<button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
+		</div>
+	</form>
 </ion-content>

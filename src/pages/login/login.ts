@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-/*
-  Generated class for the Login page.
+import { UserData } from '../../providers/user-data';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  login: {username?: string, password?: string} = {};
+  submitted = false;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public userData: UserData) { }
 
-  ionViewDidLoad() {
-    console.log('Hello LoginPage Page');
+  onLogin(form) {
+    this.submitted = true;
+
+    if (form.valid) {
+      this.userData.login(this.login.username);
+    }
   }
-
 }

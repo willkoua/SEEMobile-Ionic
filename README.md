@@ -3,10 +3,10 @@ SEEMobile-Ionic
 
 ## Using this project
 
-You'll need the Ionic CLI with support for v2 apps:
+In SEEMobile-Ionic directory
 
 ```bash
-$ npm install -g ionic
+$ npm install
 ```
 
 Then run:

@@ -59,7 +59,7 @@ export class MyApp {
   ) {
     this.initializeApp();
 
-    this.rootPage = CalendarPage;
+    this.rootPage = LoginPage;
     // set our app's pages
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
